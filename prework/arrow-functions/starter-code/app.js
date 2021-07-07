@@ -202,17 +202,22 @@ Student.prototype.scope = function() {
 };
 
 // TODO: Uncomment the following line of code to see the output in the browser console
-// console.log(joe.scope());
+console.log(joe.scope());
 
 Student.prototype.scopeArrow = () => console.log(this);
 
 // TODO: Uncomment the following line of code to see the output in the browser console
-// console.log(joe.scopeArrow());
+console.log(joe.scopeArrow());
 
 // TODO: Write a COMMENT below to answer the following questions.
 // 1. What is "this" when joe.scope() is invoked?
-//
+//  "this" refers to that specific instance of Joe.
+
 // 2. What is "this" when joe.scopeArrow() is invoked?
-//
+// "this" refers to that instance of joe.scopeArrow
+
 // 3. Explain why "this" is different when an arrow function is used.
-//
+//  Arrow functions can never have duplicate named parameters, whether in strict or non-strict mode.
+// Arrow functions do not have an arguments binding. However, they have access to the arguments object of the closest non-arrow parent function. Named and rest parameters are heavily relied upon to capture the arguments passed to arrow functions.
+// Arrow functions can never be used as constructor functions. Hence, they can never be invoked with the new keyword. As such, a prototype property does not exist for an arrow function.
+// The value of this inside an arrow function remains the same throughout the lifecycle of the function and is always bound to the value of this in the closest non-arrow parent function.
